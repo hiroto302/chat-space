@@ -34,8 +34,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :group
 - belongs_to :user
-- has_many :message
-
 
 ## groupsテーブル
 
@@ -72,4 +70,4 @@ Things you may want to cover:
 ### Association
 - belongs_to :group
 - belongs_to :user
-- belongs_to :groups_user
+
