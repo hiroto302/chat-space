@@ -1,0 +1,224 @@
+.bar {
+  height: 100vh;
+  width: 300px;
+  float: left;
+  box-sizing: border-box;
+  position: fixed;
+  &__group {
+    height: 100px;
+    padding: 0 20px;
+    background-color: $side_blue_dark;
+    position: relative;
+  }
+  &__group__box {
+    height: 24px;
+    width: 260px;
+    background-color:side_blue_dark;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  &__group__box__user{
+    height: 24px;
+    text-align: center;
+    font-size: $side_header_font;
+    font-weight: bold;
+    line-height: 24px;
+    color:$white;
+  }
+  &__group__box__menu{
+    height: 24px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 24px;
+    color: $white;
+    display: flex;
+  }
+    &__group__box__menu-new{
+    height: 24px;
+    margin-left: 0.3rem;
+  }
+  .bar__group__box__menu-new-botton{
+    color:white;
+    margin-left: 0.3px;
+    font-size:16px;
+  }
+  &__group__box__menu-edit{
+    height: 24px;
+    margin-left: 0.3rem;
+  }
+  .bar__group__box__menu-edit-botton{
+    color:white;
+    font-size:16PX;
+    margin-left:0.3px;
+  }
+  &__creat {
+    height: calc(100vh - 100px);
+    padding: 20px 20px 0;
+    background-color: $side_blue_light;
+    overflow: scroll;
+    box-sizing: border-box;
+  }
+  &__creat__box{
+    height: 31px;
+    width: 260px;
+    margin-bottom:40px;
+  }
+  &__creat__box__name{
+    font-size: $side_group_name;
+    font-weight: bold;
+    line-height: 15px;
+    color: $white;
+    margin-bottom:5px;
+  }
+  &__creat__box__message{
+    font-size: $side_group_message;
+    font-weight: bold;
+    line-height: 11px;
+    color: $white;
+  }
+}
+
+.contents{
+  height: 100vw;
+  width: calc(100vw - 300px);
+  float: right;
+  position:fixed;
+  left:300px;
+
+  &__group {
+    height: 100px;
+    padding:0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eeeeee;
+    position: relative;
+  }
+  &__group__box{
+    height: 47px;
+    width: 260px;
+    padding-top:35px;
+
+  }
+  &__group__box__name{
+    font-size: 20px;
+    line-height: 20px;
+    color: #333333;
+    margin-bottom:15px;
+  }
+  &__group__box__member{
+    font-size: 12px;
+    line-height: 12px;
+    color:#999999;
+  }
+  &__group__edit{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border: solid 1px #38aef0;
+    position: absolute;
+    right: 40px;
+    top: 30px;
+  }
+  .contents__group__edit-botton{
+    color:#38aef0;
+    text-decoration:none;
+  }
+
+  &__message {
+    height: calc(100vh - 190px);
+    background-color:#fafafa;
+    overflow: scroll;
+    padding: 46px 40px;
+    box-sizing: border-box;
+  }
+  &__message__box{
+    height: 80px;
+  }
+  &__message__box__info{
+    height: 16px;
+    margin-bottom:10px;
+  }
+  &__message__box__info__user{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+    color:#434A54;
+    float:left;
+  }
+  &__message__box__info__date{
+    font-size: 12px;
+    line-height: 16px;
+    color:#999999;
+    margin-left:3px;
+    float:left;
+
+  }
+  &__message__box__chat{
+    font-size: 14px;
+    line-height: 14px;
+    color:#434A54;
+    margin-bottom:40px;
+  }
+
+  &__footer {
+    height: 90px;
+    padding:20px 40px;
+    background-color:#ddd;
+    box-sizing: border-box;
+    position: relative;
+  }
+  &__footer__box {
+    height: 50px;
+    background-color:white;
+  }
+  &__footer__box-sent-message {
+    font-size: $side_header_font;
+    line-height: 50px;
+    padding:0 10px;
+    color: #434A54;  
+    float:left;  
+  }
+  &__footer__box-sent-message-sent{
+    height:30px;
+    width:300px;
+    border: none;
+  }
+  
+  &__footer__box-sent-cennter {
+    height: 50px;
+    width: 25px;
+    background-color: #ddd;
+    float:right;
+  }
+  &__footer__box-sent-botton{
+    font-size: 16px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: white;
+    background-color: #38aef0;
+    border: solid 1px #38aef0;
+    float:right;
+    text-decoration:none;
+  }
+  &__footer__box-sent-botton-function{
+    text-decoration:none;
+    color: $white;
+  }
+  &__footer__image{
+    font-size:26px;
+    position: absolute;
+    right: 158px;
+    bottom: 26px;
+  }
+
+  &__footer__image__sent{
+    display: none;
+  }
+}
