@@ -1,0 +1,20 @@
+.bar
+  .bar__group
+    .bar__group__box
+      .bar__group__box__user
+        = current_user.name
+      .bar__group__box__menu
+        .bar__group__box__menu-new
+        =link_to new_group_path, class: "bar__group__box__menu-new-botton" do
+          =fa_icon 'edit'
+        .bar__group__box__menu-edit
+        =link_to edit_user_path(current_user), class: "bar__group__box__menu-edit-botton" do
+          =fa_icon 'cog'
+  .bar__creat
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group), class: "bar__creat-disply" do
+        .bar__creat__box
+          .bar__creat__box__name
+            = group.name
+          .bar__creat__box__message
+            = group.show_last_message

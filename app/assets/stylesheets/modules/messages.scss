@@ -1,0 +1,56 @@
+// // .contents__message
+// //   .contents__message__box
+// //     .contents__message__box__info
+// //       .contents__message__box__info__user
+// //         = message.user.name
+// //       .contents__message__box__info__date
+// //         = message.created_at.strftime("%Y/%m/%d %H:%M")
+// //     .contents__message__box__chat
+// //       - if message.content.present?
+// //         %p.lower-message__content
+// //           = message.content
+// //       = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+// .contents{
+//   height: 100vw;
+//   width: calc(100vw - 300px);
+//   float: right;
+//   position:fixed;
+//   left:300px;
+
+//   &__message {
+//     height: calc(100vh - 190px);
+//     background-color:#fafafa;
+//     overflow: scroll;
+//     padding: 46px 40px;
+//     box-sizing: border-box;
+//   }
+//   &__message__box{
+//     height: 80px;
+//   }
+//   &__message__box__info{
+//     height: 16px;
+//     margin-bottom:10px;
+//   }
+//   &__message__box__info__user{
+//     font-size: 16px;
+//     font-weight: bold;
+//     line-height: 16px;
+//     color:#434A54;
+//     float:left;
+//   }
+//   &__message__box__info__date{
+//     font-size: 12px;
+//     line-height: 16px;
+//     color:#999999;
+//     margin-left:3px;
+//     float:left;
+
+//   }
+//   &__message__box__chat{
+//     font-size: 14px;
+//     line-height: 14px;
+//     color:#434A54;
+//     margin-bottom:40px;
+//   }
+// }

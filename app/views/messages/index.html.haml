@@ -1,51 +1,49 @@
-.bar
-  .bar__group
-    .bar__group__box
-      .bar__group__box__user
-        ユーザー名
-      .bar__group__box__menu
-        .bar__group__box__menu-new
-        =link_to "", class: "bar__group__box__menu-new-botton" do
-          =fa_icon  'edit'
-        .bar__group__box__menu-edit
-        =link_to "", class: "bar__group__box__menu-edit-botton" do
-          =fa_icon 'cog'
-  .bar__creat
-    .bar__creat__box
-      .bar__creat__box__name
-        グループ名
-      .bar__creat__box__message
-        メッセージ
+.wrapper
+  = render 'shared/side_bar'
 
 .contents
   .contents__group
     .contents__group__box
       .contents__group__box__name
-        現在のグループ名
+        = @group.name
       .contents__group__box__member
-        メンバーリスト
+        - @group.users.each do |user|
+          = user.name
     .contents__group__edit
       =link_to "", class: "contents__group__edit-botton" do
         Edit
 
+  -# .contents__message
+  -#   .contents__message__box
+  -#     .contents__message__box__info
+  -#       .contents__message__box__info__user
+  -#         hiroto
+  -#       .contents__message__box__info__date
+  -#         9/16
+  -#     .contents__message__box__chat
+  -#       kitutuki
+  
   .contents__message
-    .contents__message__box
-      .contents__message__box__info
-        .contents__message__box__info__user
-          hiroto
-        .contents__message__box__info__date
-          9/16
-      .contents__message__box__chat
-        kitutuki
+    = render partial: 'message', collection: @messages
+    
+  -# .contents__footer
+  -#   .contents__footer__box
+  -#     .contents__footer__box-sent-message
+  -#       %input.contents__footer__box-sent-message-sent{type: "text"}
+  -#     .contents__footer__box-sent-botton
+  -#       =link_to "", class: "contents__footer__box-sent-botton-function" do
+  -#         Send
+  -#     .contents__footer__box-sent-cennter
+  -#   %label.contents__footer__image
+  -#     = fa_icon 'image'
+  -#     %input.contents__footer__image__sent{type: "file"}
 
   .contents__footer
     .contents__footer__box
-      .contents__footer__box-sent-message
-        %input.contents__footer__box-sent-message-sent{type: "text"}
-      .contents__footer__box-sent-botton
-        =link_to "", class: "contents__footer__box-sent-botton-function" do
-          Send
-      .contents__footer__box-sent-cennter
-    %label.contents__footer__image
-      = fa_icon 'image'
-      %input.contents__footer__image__sent{type: "file"}
+      = form_for [@group, @message] do |f|
+        -# .contents__footer__box-sent-message
+        = f.text_field :content, class: 'contents__footer__box-sent-message-sent', placeholder: 'type a message'
+        = f.label :image, class: 'contents__footer__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'contents__footer__box-sent-botton-function'
