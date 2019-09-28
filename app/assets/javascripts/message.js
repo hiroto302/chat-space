@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message){
-    image = (message.image.url !== null) ? `<img src="${message.image.url}">` : "";     
-    console.log(image)
+    image = (message.image.url !== null) ? `<img src="${message.image.url}">` : "";
     var html =
       `<div class="contents__message__box" data-message-id=${message.id}>
         <div class="contents__message__box__info">
@@ -49,8 +48,8 @@ $(document).on('turbolinks:load', function(){
 
   var reloadMessages = function () {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      var last_message_id = $('.contents__message__box:last').data("message-id"); //dataメソッドで.messageにある:last最後のカスタムデータ属性を取得しlast_message_idに代入。
-      // var group_id = $(".group").data("group-id");
+      var last_message_id = $('.contents__message__box:last').data("message-id");
+      
       console.log(last_message_id)
       $.ajax({
         url: "api/messages",
@@ -58,21 +57,21 @@ $(document).on('turbolinks:load', function(){
         dataType: 'json',
         data: {id: last_message_id}
       })
-      .done(function (messages) { //通信成功したら、controllerから受け取ったデータ（messages)を引数にとって以下のことを行う
+      .done(function (messages) {
         console.log("ok")
-        var insertHTML = '';//追加するHTMLの入れ物を作る
-        messages.forEach(function (message) {//配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-          insertHTML = buildHTML(message); //メッセージが入ったHTMLを取得
+        var insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML = buildHTML(message);
           if (message.id > last_message_id){
-          $('.contents__message').append(insertHTML);//メッセージを追加
-          $('.contents__message').animate({scrollTop: $('.contents__message')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
+          $('.contents__message').append(insertHTML);
+          $('.contents__message').animate({scrollTop: $('.contents__message')[0].scrollHeight}, 'fast');
           }
         })
       })
       .fail(function () {
-        console.log('自動更新に失敗しました');
+        alert('自動更新に失敗しました');
       });
     }
   };
-  setInterval(reloadMessages, 5000);//5000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
+  setInterval(reloadMessages, 5000);
 });
