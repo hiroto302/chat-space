@@ -10,18 +10,9 @@
         - @group.users.each do |user|
           = user.name
     .contents__group__edit
-      =link_to "", class: "contents__group__edit-botton" do
-        Edit
-
-  -# .contents__message
-  -#   .contents__message__box
-  -#     .contents__message__box__info
-  -#       .contents__message__box__info__user
-  -#         hiroto
-  -#       .contents__message__box__info__date
-  -#         9/16
-  -#     .contents__message__box__chat
-  -#       kitutuki
+      =link_to "Edit",edit_group_path(@group)
+      -# , class: "contents__group__edit-botton" do
+      -#   Edit
   
   .contents__message
     = render partial: 'message', collection: @messages

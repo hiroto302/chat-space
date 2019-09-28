@@ -5,7 +5,7 @@
         = current_user.name
       .bar__group__box__menu
         .bar__group__box__menu-new
-        =link_to new_group_path, class: "bar__group__box__menu-new-botton" do
+        =link_to new_group_path, class: "bar__group__box__menu-new-botton",data: {turbolinks: false} do
           =fa_icon 'edit'
         .bar__group__box__menu-edit
         =link_to edit_user_path(current_user), class: "bar__group__box__menu-edit-botton" do
