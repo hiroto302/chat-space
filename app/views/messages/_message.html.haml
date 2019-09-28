@@ -1,43 +1,19 @@
-.contents__message__box
+.contents__message__box{"data-message-id": "#{message.id}"}
   .contents__message__box__info
     .contents__message__box__info__user
       = message.user.name
     .contents__message__box__info__date
       = message.created_at.strftime("%Y/%m/%d %H:%M")
-  .contents__message__box__chat
+  .contents__message__box__info__image
     - if message.content.present?
       %p.lower-message__content
         = message.content
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 
-
-
-    -#   .contents__footer
-    -# .contents__footer__box
-    -#   = form_for [@group, @message] do |f|
-    -#     .contents__footer__box-sent-message
-    -#       = f.text_field :content, class: 'contents__footer__box-sent-message-sent', placeholder: 'type a message'
-    -#       = f.label :image, class: 'contents__footer__image' do
-    -#         = fa_icon 'picture-o', class: 'icon'
-    -#         = f.file_field :image, class: 'hidden'
-    -#       = f.submit 'Send', class: 'contents__footer__box-sent-botton-function'
-    
-    -# %form_forにしたやつ
-
-
-    -#   .contents__footer
-    -# .contents__footer__box
-    -# = form_for [@group, @message] do |f|
-    -#   .contents__footer__box-sent-message
-    -#   = f.text_field :content, class: 'contents__footer__box-sent-message-sent', placeholder: 'type a message'
-      
-    -#   .contents__footer__box-sent-botton
-
-    -#   = f.submit 'Send', class: 'contents__footer__box-sent-botton-function'
-    -#   .contents__footer__box-sent-cennter
-
-    -#   = f.label :image, class: 'contents__footer__image' do
-    -#     = fa_icon 'picture-o', class: 'icon'
-    -#     = f.file_field :image, class: 'hidden'
-      
-    -#   これが元のやつ
+  
+  
+  -# .contents__message__box__chat
+  -#   - if message.content.present?
+  -#     %p.lower-message__content
+  -#       = message.content
+  -#   = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
